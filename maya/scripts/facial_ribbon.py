@@ -11,6 +11,7 @@ fol_ob = ['eyelipDnR_surfaceFollicle50', 'eyelipDnR_surfaceFollicle5050', 'eyeli
 origin_mesh = 'Nu_M_BaseBody_Face01'
 ribbon_mesh = 'eyelipDnR_surface'
 
+
 class ribbon:
 
     def __init__(self, origin_mesh, joint_object, fol_object, ribbon_mesh):

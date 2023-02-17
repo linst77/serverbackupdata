@@ -1,12 +1,12 @@
 import maya.cmds as cmds
 import sys, os
-sys.path.append( os.path.normpath( "C:\\Users\\jeffjung\\Documents\\maya\\2022\\scripts"))
-import yaml, pathlib
-import utility, pprint
+import yaml
+import XLFACS.util.pathlib
+import XLFACS.util.utility, pprint
 
-
-YAML_STRUCTURE = r"C:\\Users\\jeffjung\\Documents\\maya\\2022\\scripts\\structure.yaml"
+YAML_STRUCTURE = r"C:\Users\jeffjung\Documents\maya\scripts\structure.yaml"
 MAX_headJoint = "Bip001FBXASC032Head"
+
 
 
 class CreateJoints():
@@ -152,7 +152,7 @@ class CreateJoints():
 			each_Joint =  values[i]["joints"]
 			parent_Joint = values[i]["parent"]
 			for j in each_Joint:
-				pos_bone = utility.worldPosition( j)
+				pos_bone = FACS_utility.worldPosition( j)
 				cmds.select( d=True)
 				tempJoint = cmds.joint( p=pos_bone, zso=True, oj='xyz')
 				cmds.select( d=True)
@@ -160,7 +160,7 @@ class CreateJoints():
 
 	#----------------------------------------------
 	def dataStructure( self):
-		dummy_Data = utility.yamlStructures( self.yaml_Path)
+		dummy_Data = FACS_utility.yamlStructures( self.yaml_Path)
 		dummy_Keys = dummy_Data.keys()
 		return dummy_Data, dummy_Keys
 
@@ -170,13 +170,13 @@ class CreateJoints():
 	def eyeBallRCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -186,13 +186,13 @@ class CreateJoints():
 	def eyeBallLCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -202,13 +202,13 @@ class CreateJoints():
 	def cheekCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -218,13 +218,13 @@ class CreateJoints():
 	def mouthLineRCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -234,13 +234,13 @@ class CreateJoints():
 	def mouthLineLCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -250,13 +250,13 @@ class CreateJoints():
 	def cheekRCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -266,13 +266,13 @@ class CreateJoints():
 	def cheekLCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -284,13 +284,13 @@ class CreateJoints():
 	def eyeBrowCCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -301,13 +301,13 @@ class CreateJoints():
 	def eyeBrowRCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -317,13 +317,13 @@ class CreateJoints():
 	def eyeBrowLCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -333,13 +333,13 @@ class CreateJoints():
 	def eyeLCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -349,13 +349,13 @@ class CreateJoints():
 	def eyeRCreate (self, eye_Joints, parent_Joint):
 
 		eye_Joints = eye_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in eye_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -365,13 +365,13 @@ class CreateJoints():
 	def mouthCreate (self, mouth_Joints, parent_Joint):
 
 		mouth_Joints = mouth_Joints["joints"]
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in mouth_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -386,9 +386,9 @@ class CreateJoints():
 
 
 		for i in nose_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -402,13 +402,13 @@ class CreateJoints():
 
 		mouthUpside = mouthUpside["joints"]
 
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in mouthUpside:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -420,13 +420,13 @@ class CreateJoints():
 
 		jawEnd = jawEnd["joints"]
 
-		parent_Joint = utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
+		parent_Joint = FACS_utility.prefixModifier( parent_Joint, strReplace="facs_", strRemove="D_")
 		temp_Joints = []
 
 		for i in jawEnd:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
@@ -439,32 +439,24 @@ class CreateJoints():
 		temp_Joints = []
 
 		head_Joint = ["D_head"]
-		pos_parentJnt = utility.worldPosition( head_Joint)
+		pos_parentJnt = FACS_utility.worldPosition( head_Joint)
 		cmds.select( d=True)
-		temp_Name = utility.prefixModifier( head_Joint[0], strReplace="facs_", strRemove="D_")
+		temp_Name = FACS_utility.prefixModifier( head_Joint[0], strReplace="facs_", strRemove="D_")
 		tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name)
 		temp_Joints.append( tempJoint)
 		cmds.select( d=True)
 
 		parent_Joints = ["D_eyeBallL", "D_eyeBallR", "D_nose"]
 		for i in parent_Joints:
-			pos_parentJnt = utility.worldPosition( i)
+			pos_parentJnt = FACS_utility.worldPosition( i)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( i, strReplace="facs_", strRemove="D_")
 			tempJoint = cmds.joint( p=pos_parentJnt, n=temp_Name + "_G")
 			cmds.select( d=True)
 			temp_Joints.append( tempJoint)
 			cmds.parent( tempJoint, temp_Joints[0])
 
 		return temp_Joints
-
-
-
-
-
-
-
-
 
 	# parent joint function needed
 	def tongueJawCreate( self, jaw_Joints, parent_Joint):
@@ -478,9 +470,9 @@ class CreateJoints():
 
 		### tough structure
 		for j in each_Joint:
-			pos_bone = utility.worldPosition( j)
+			pos_bone = FACS_utility.worldPosition( j)
 			cmds.select( d=True)
-			temp_Name = utility.prefixModifier( j, strReplace="facs_", strRemove="D_")
+			temp_Name = FACS_utility.prefixModifier( j, strReplace="facs_", strRemove="D_")
 
 			if "jaw" in temp_Name:
 				temp_jaw = temp_Name
@@ -505,7 +497,7 @@ class CreateJoints():
 		### jaw structure
 		jaw_G_orientY = cmds.getAttr( temp_jaw_G + ".jointOrientY")
 		cmds.select( d=True)
-		pos_bone = utility.worldPosition( temp_jaw_G)
+		pos_bone = FACS_utility.worldPosition( temp_jaw_G)
 		tempJoint = cmds.joint( p=pos_bone, n=temp_jaw)
 		cmds.setAttr( tempJoint + ".jointOrientY", jaw_G_orientY)
 		cmds.select( d=True)
